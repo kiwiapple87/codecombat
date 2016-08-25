@@ -1,0 +1,42 @@
+# This array contains the positions of the pens that we want to put the reindeer in.
+penPositions = [ {"x":20,"y":24}, {"x":28,"y":24}, {"x":36,"y":24}, {"x":44,"y":24}, {"x":52,"y":24} ]
+
+# This array is used to track which reindeer have been asssigned to which pen.
+penOccupants = [ None, None, None, None, None, ]
+
+# And this array contains our reindeer.
+friends = hero.findFriends()
+
+# Figure out which reindeer are already in their pens.
+for deerIndex in range(len(friends)):
+    reindeer = friends[deerIndex]
+
+    # Go through each position and see if it matches the reindeer's position.
+    for penIndex in range(len(penPositions)):
+        penPos = penPositions[penIndex]
+       
+        if penPos.x == reindeer.pos.x and penPos.y == reindeer.pos.y:
+            # Put the reindeer in the occupants array in slot penIndex.
+            penOccupants[penIndex] = reindeer
+            # Remove the reindeer from the friends array.
+            friends[deerIndex] = None
+            # break out of the inner loop here to avoid confusion.
+            break
+            pass
+
+# Assign the remaining reindeer to new positions.
+for deerIndex in range(len(friends)):
+    # If the reindeer in this array slot is null, skip this and continue to the next one.
+    if not friends[deerIndex]:
+        continue
+    # Look for the first pen with nothing already assigned to it.
+    for occIndex in range(len(penOccupants)):
+        # If there's nothing in this slot of the occupants array, then the pen is open.
+        if not penOccupants[occIndex]:
+            # Put the reindeer in the occupants array.
+            penOccupants[occIndex] = friends[occIndex]
+            # Command the reindeer to move to the pen position.
+            hero.command(penOccupants[occIndex], "move", penPositions[occIndex])
+            # break out of the inner for loop here so we don't reassign the deer.
+            break
+            pass
