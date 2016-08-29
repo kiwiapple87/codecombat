@@ -5,7 +5,7 @@
 # Soldiers should attack the witches, archers should attack nearest enemy.
 
 def chooseTarget(friend):
-  witch = hero.findByType("witch")
+  witch = friend.findNearest(hero.findByType("witch"))
   nearest = friend.findNearest(hero.findEnemies())
   if friend.type == "soldier" and witch:
     return witch
