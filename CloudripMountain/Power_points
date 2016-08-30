@@ -24,4 +24,8 @@ for i in range(len(powerMap)):
         hero.say("next")
         # If it's a positive number:
         if pointValue > 0 and pointValue % 2 == 0:
-        
+        # Use the 'convert' function to get coordinates.
+            pos = convert(i,j)
+            # Move there, say "VENI", fight or pick up an item.
+            hero.moveXY(pos.x, pos.y)
+            hero.say("VENI")
