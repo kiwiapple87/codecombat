@@ -13,3 +13,8 @@ powerMap = wizard.powerMap
 def convert(row, col):
     return {'x': 16 + col * 12, 'y': 16 + row * 12}
 
+# You need loop through powerMap and find all positive numbers.
+# First, loop through indexes of rows.
+for i in range(len(powerMap)):
+    # Each row is an array. Iterate through it.
+    for j in range(len(powerMap[i])):
