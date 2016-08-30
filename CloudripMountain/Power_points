@@ -29,3 +29,9 @@ for i in range(len(powerMap)):
             # Move there, say "VENI", fight or pick up an item.
             hero.moveXY(pos.x, pos.y)
             hero.say("VENI")
+            item = hero.findNearest(hero.findItems())
+            enemy = hero.findNearest(hero.findEnemies())
+            if enemy:
+                hero.attack(enemy)
+            else:
+                hero.moveXY(item.pos.x, item.pos.y)
