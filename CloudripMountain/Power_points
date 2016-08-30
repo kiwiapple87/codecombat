@@ -18,3 +18,10 @@ def convert(row, col):
 for i in range(len(powerMap)):
     # Each row is an array. Iterate through it.
     for j in range(len(powerMap[i])):
+# Get the value of the i-th row and j-th column.
+        pointValue = powerMap[i][j]
+        hero.say(pointValue)
+        hero.say("next")
+        # If it's a positive number:
+        if pointValue > 0 and pointValue % 2 == 0:
+        
