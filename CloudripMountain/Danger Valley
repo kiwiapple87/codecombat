@@ -10,8 +10,12 @@ for i in range(len(hero.grid)):
     row = hero.grid[i]
     # Now, row is just another array!
     # Iterate over all the tiles in this array:
-    
+    for j in range(len(row)):
         # Do a check to see if the tile of row i at j is 1.
-        #hero.buildXY("fire-trap", 36 + 6 * j, 20 + 6 * i)
+        tile = row[j]
+        if tile == 1:    
+            hero.buildXY("fire-trap", 36 + 6 * j, 20 + 6 * i)
         
+            
 # Finally, retreat back to cover.
+hero.moveXY(29, 55)
