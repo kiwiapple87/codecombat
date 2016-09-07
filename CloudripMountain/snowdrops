@@ -21,9 +21,10 @@ for cell in cells:
     row = cell["row"]
     col = cell["col"]
     # First check if row is less than the length of forestMap.
-    
+    for i in len(row):
         # Next, check if col is less than the length of forestMap[row].
-        
+        for j in len (col):
             # Now we sure that the cell exists and can check its value.
             # If it's 0 (zero), then say where to shoot.
-            
+            if cell[i][j] == 0:
+                hero.say("Row " + i + " Column " + j + " Fire!")
