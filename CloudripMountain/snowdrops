@@ -26,5 +26,6 @@ for cell in cells:
         if col < len(forestMap):
             # Now we sure that the cell exists and can check its value.
             # If it's 0 (zero), then say where to shoot.
+            cellValue = forestMap[row][col]
             if cell == 0:
                 hero.say("Row " + row + " Column " + col + " Fire!")
