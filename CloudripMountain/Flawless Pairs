@@ -20,10 +20,11 @@ while True:
     gemPair = findValuePair(gems)
     # If the gemPair exists, collect the gems!
     if gemPair:
-        # Move to the first gem first (gemPair[0]).
-
-        # Return to get the haste from the wizard.
-
-        # Then move to the second gem (gemPair[1]).
-
-        # Return to get the haste from the wizard.
+    # Move to the first gem first (gemPair[0]).
+        hero.moveXY(gemPair[0].pos.x, gemPair[0].pos.y)
+    # Return to get the haste from the wizard.
+        hero.moveXY(40,54)
+    # Then move to the second gem (gemPair[1]).
+        hero.moveXY(gemPair[1].pos.x, gemPair[1].pos.y)
+    # Return to get the haste from the wizard.
+        hero.moveXY(40,54)
