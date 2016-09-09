@@ -23,7 +23,10 @@ def toBinary(number):
     # Go through the steps again:
         # Get the remainder, decrement the number, append the string.
     # Remeber that binary is another way of saying '2'!
-    
+    while number != 0:
+        remainder= number % 2
+        number = (number - remainder) / 2
+        string = remainder + string
     return string
 
 while True:
