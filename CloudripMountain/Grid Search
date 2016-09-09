@@ -12,7 +12,7 @@ step = 10
 for x in range(leftBorder, rightBorder, step):
     # Use a nested loop to iterate through Y coordinates for each X.
     # Iterate y coordinates from the bottom to top border with step 10.
-    for y in range(bottomBorder, tobBorder, step):
+    for y in range(bottomBorder, topBorder, step):
         # Move to the point with coordinates X, Y and say anything.
         hero.moveXY(x,y)
         hero.say("Anything")
