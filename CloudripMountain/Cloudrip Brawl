@@ -4,8 +4,8 @@ def pickUpNearestItem(items):
         moveTo(nearestItem.pos)
 
 # remove fast
-def moveTo(position, fast=True):
-    if (self.isReady("jump") and self.distanceTo > 10 and fast):
+def moveTo(position):
+    if (self.isReady("jump") and self.distanceTo > 10):
         self.jumpTo(position)
     else:
         self.move(position)
@@ -15,13 +15,6 @@ def attack(target):
     if target:
         if (self.distanceTo(target) > 10):
             moveTo(enemy.pos)
-        elif (self.isReady("bash")):
-            self.bash(enemy)
-        elif (self.isReady("power-up")):
-            self.powerUp()
-            self.attack(enemy)
-        elif (self.isReady("cleave")):
-            self.cleave(enemy)
         else:
             self.attack(enemy)
 
@@ -37,6 +30,7 @@ def summonTroops():
 
 # commands attack - may have to focus on enemy types
 def commandSoldiers():
+    enemy = soldier.findNearest(hero.findEnemies())
     for soldier in self.findFriends():
         if enemy:
             self.command(soldier, "attack", enemy)
@@ -46,8 +40,7 @@ while True:
     summonTroops()
     commandSoldiers()
     items = self.findItems()
-    enemy = self.findNearest(self.findEnemies())
-    if (len(items) > 0 or (enemy and self.distanceTo(enemy) > 10)):
+    if (len(items) > 0 or (enemy and hero.distanceTo(enemy) > 10)):
         pickUpNearestItem(items)
     else:
         attack(enemy)
