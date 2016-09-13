@@ -15,8 +15,13 @@ def areTwins(unit1, unit2):
     return True
 
 # Iterate over all pairs of paladins and say() their name by pairs if they are twins.
-
+for paladin1 in hero.findFriends():
+    for paladin2 in hero.findFriends():
 # For example: hero.say("NameTwin1 NameTwin2")
-
+        if (paladin1.id != paladin2.id and areTwins(paladin1, paladin2)):
+            hero.say(paladin1.id + " " + paladin2.id)
 # When twins are in their spots, lure the ogre.
 # Don't be afraid of beams - they are dangerous only for ogres.
+hero.wait(5)
+hero.moveXY(63,38)
+hero.moveXY(16, 38)
