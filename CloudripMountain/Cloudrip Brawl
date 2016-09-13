@@ -30,8 +30,8 @@ def summonTroops():
 
 # commands attack - may have to focus on enemy types
 def commandSoldiers():
-    enemy = soldier.findNearest(hero.findEnemies())
     for soldier in self.findFriends():
+        enemy = soldier.findNearest(hero.findEnemies())
         if enemy:
             self.command(soldier, "attack", enemy)
 
