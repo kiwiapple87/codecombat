@@ -23,7 +23,7 @@ firstY = 14
 for i in range(tentsInColumn):
     for j in range(tentsInRow):
         # Move at the marks near tents and say anything.
-        hero.moveXY(firstX + (j*12), firstY + (i*21))
+        hero.moveXY(firstX + (j*stepX), firstY + (i*stepY))
         hero.say("WAKE UP!")
 # Now watch the battle.
 hero.moveXY(21,6)
