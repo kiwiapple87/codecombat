@@ -9,17 +9,17 @@ def findNearestPair(units):
     nearestPair = ["Nobody", "Nobody"]
     # You need to check and compare all pairs of units.
     # Iterate all units with indexes 'i' from 0 to 'len(units)-1'.
-    for i in len(units)-1:
+    for i in range(len(units)-1):
         # Use an additional loop through indexes 'j' from 'i+1' to 'len(units)'.
-        
+        for j in range(i+1, len(units)):
             # Find the distance between the i-th and j-th units.
-    
+            distance = units[i].distanceTo(units[j])
             # If the distance less than 'minDistance':
-    
+                if distance < minDistance:
                 # Reassign 'minDistance' with the new distance.
-    
+                    minDistance = distance
                 # Reassign 'nearestPair' to the names of the current pair of units.
-    
+                    nearestPair = units[i].id, units[j].id
     return nearestPair
 
 
