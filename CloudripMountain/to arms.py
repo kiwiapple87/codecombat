@@ -20,10 +20,10 @@ firstY = 14
 
 # Use nested loops and visit all 20 tents.
 # IMPORTANT: move row by row - it's faster.
-for i in tentsInRow:
-    for j in tentsInColumn:
+for i in range(tentsInColumn):
+    for j in range(tentsInRow):
         # Move at the marks near tents and say anything.
-        hero.moveXY(firstX + (j*21), firstY + (i*12))
-
+        hero.moveXY(firstX + (j*12), firstY + (i*21))
+        hero.say("WAKE UP!")
 # Now watch the battle.
 hero.moveXY(21,6)
