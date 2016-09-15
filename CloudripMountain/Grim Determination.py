@@ -11,7 +11,6 @@ def lowestHealthPaladin():
         if friend.health < lowestHealth and friend.health < friend.maxHealth:
             lowestHealth = friend.health
             lowestFriend = friend
-
     return lowestFriend
 
 def commandPaladin(paladin):
@@ -30,6 +29,18 @@ def commandPaladin(paladin):
         hero.command(paladin, "attack", enemy)
     pass
 
+def commandPeasant(friend):
+    item = friend.findNearest(hero.findItems())
+    if item:
+        hero.command(friend, "move", item.pos)
+        
+def commandGriffin(friend):
+    enemy = friend.findNearest(hero.findEnemies())
+    if enemy:
+        hero.command(friend, "attack", enemy)
+    else:
+        hero.command(friend, "move", {'x': 68,'y':38})
+
 def commandFriends():
     # Command your friends.
     friends = hero.findFriends()
@@ -46,3 +57,5 @@ def commandFriends():
 while True:
     commandFriends()
     # Summon griffin riders!
+    if hero.gold >= hero.costOf("griffin-rider"):
+        hero.summon("griffin-rider")
