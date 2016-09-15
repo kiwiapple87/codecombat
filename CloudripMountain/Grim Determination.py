@@ -21,7 +21,7 @@ def commandPaladin(paladin):
     halfHealth = paladin.maxHealth / 2
     friend = lowestHealthPaladin()
     enemy = paladin.findNearest(hero.findEnemies())
-    if paladin.canCast("heal"):
+    if paladin.canCast("heal") and friend:
         hero.command(paladin, "cast", "heal", friend)
     elif paladin.health < halfHealth:
         hero.command(paladin, "shield")
