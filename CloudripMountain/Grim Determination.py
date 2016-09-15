@@ -19,7 +19,15 @@ def commandPaladin(paladin):
     # You can use paladin.canCast("heal") and command(paladin, "cast", "heal", target)
     # Paladins can also shield: command(paladin, "shield")
     # And don't forget, they can attack, too!
-
+    halfHealth = paladin.maxHealth / 2
+    friend = lowestHealthPaladin()
+    enemy = paladin.findNearest(hero.findEnemies())
+    if paladin.canCast("heal"):
+        hero.command(paladin, "cast", "heal", friend)
+    elif paladin.health < halfHealth:
+        hero.command(paladin, "shield")
+    elif enemy:
+        hero.command(paladin, "attack", enemy)
     pass
 
 def commandFriends():
