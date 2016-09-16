@@ -16,13 +16,16 @@ enemies = hero.findEnemies()
 
 # Find antipodes for each of your archers.
 # Iterate all friends.
-
+for friend in friends:
     # For each of friends iterate all enemies.
-    
+    for enemy in enemies:
         # Check if the pair of the current friend and the enemy are antipodes.
-        
+        if areAntipodes(friend, enemy):
             # If they are antipodes, command the friend move to the enemy.
-            
+            hero.command(friend, "move", enemy.pos)
 
 # When all clones disappears, attack the warlock.
-
+hero.wait(10)
+enemies = hero.findEnemies()
+while len(enemies) == 1:
+    hero.attack(hero.findNearest(hero.findEnemies()))
