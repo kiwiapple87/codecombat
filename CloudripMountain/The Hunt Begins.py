@@ -19,6 +19,7 @@ def sumSize(burls):
 while True:
     burls = findByType("burls", findFriends())
     # Find the average size of the burls by calling the 'averageSize' function.
-    size = averageSize(burls)
+    if burls:
+        size = averageSize(burls)
     # Say the average size of the seen burls!
-    hero.say(size)
+        hero.say(size)
