@@ -6,14 +6,14 @@
 def averageSize(burls):
     sum = sumSize(burls)
     # Remember the average is the sum of the parts divided by the amount!
-    return sum / burls.length
+    return sum / len(burls)
 
 # This function should return the sum of all the burls sizes.
 def sumSize(burls):
     # Implement the sum function using the burls 'size':
     sum = 0
-    for i in burls:
-        sum = sum + i.health
+    for burl in burls:
+        sum = sum + burl.size
     return sum
 
 while True:
