@@ -5,10 +5,10 @@
 # Ogres must die (26/63)
 
 def commandSoldiers(soldier):
-    if soldier.type == "soldier" || soldier.type == "archer":
-        hero.command(soldier, "attack", nearest)
     if soldier.type == "paladin":
         #heal is ready cast heal on lowest health friend else attack
+    else:
+        hero.command(soldier, "attack", nearest)
         
 def lowestHealth(soldiers):
     lowHealth = 99999
@@ -19,3 +19,7 @@ def lowestHealth(soldiers):
             lowHealth = soldier.health
     return friend
         
+
+While True:
+    nearest = hero.findNearest(hero.findEnemies())
+    friends = hero.findFriends()
