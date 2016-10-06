@@ -4,11 +4,17 @@
 # Reach the Inner Sanctum
 # Ogres must die (26/63)
 
-def commandSoldiers(soldier):
-    if soldier.type == "paladin":
-        #heal is ready cast heal on lowest health friend else attack
-    else:
-        hero.command(soldier, "attack", nearest)
+def commandSoldiers(soldiers):
+    for soldier in soldiers:
+        nearest = soldier.findNearest(hero.findEnemies())
+        if soldier.type == "paladin":
+            if #heal is ready:
+                friend = lowestHealth(soldiers) 
+                #cast heal on friend
+            else:
+                hero.command(soldier, "attack", nearest)
+        else:
+            hero.command(soldier, "attack", nearest)
         
 def lowestHealth(soldiers):
     lowHealth = 99999
@@ -21,5 +27,4 @@ def lowestHealth(soldiers):
         
 
 While True:
-    nearest = hero.findNearest(hero.findEnemies())
     friends = hero.findFriends()
