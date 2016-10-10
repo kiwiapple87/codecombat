@@ -8,9 +8,9 @@ def commandSoldiers(soldiers):
     for soldier in soldiers:
         nearest = soldier.findNearest(hero.findEnemies())
         if soldier.type == "paladin":
-            if #heal is ready:
+            if solder.isReady("heal"):
                 friend = lowestHealth(soldiers) 
-                #cast heal on friend
+                hero.command(soldier, "heal", friend)
             else:
                 hero.command(soldier, "attack", nearest)
         else:
@@ -28,3 +28,4 @@ def lowestHealth(soldiers):
 
 While True:
     friends = hero.findFriends()
+    commandSoldiers(friends)
